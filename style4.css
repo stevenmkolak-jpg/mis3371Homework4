@@ -1,0 +1,384 @@
+/*
+  Program name: style4.css
+  Author: STEVEN KOLAK
+  Date created: 5/8/26
+  Date last edited: 5/8/26
+  Version: 4.0
+  Description: External stylesheet for ClearPath Medical Patient Registration Form (HW4).
+               Extends style3.css. Adds:
+               - Fixed/sticky banner (content protection from scrolling)
+               - Fixed footer (content protection from scrolling)
+               - Banner spacer and footer spacer so content isn't hidden
+               - iFrame wrapper styles
+               - Cookie welcome message styles
+*/
+
+/* ===== IMPORT GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:wght@700&display=swap');
+
+/* ===== BODY ===== */
+body {
+    background-color: #eef4f9;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== BANNER — FIXED at top (content protection requirement) ===== */
+#banner {
+    position: fixed;          /* keeps banner visible on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1a5276;
+    color: #ffffff;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+#banner img {
+    height: 70px;
+}
+
+#banner-text h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #ffffff;
+    border-bottom: none;
+}
+
+#banner-text p {
+    margin: 2px 0 0;
+    font-size: 13px;
+    font-style: italic;
+    color: #aed6f1;
+}
+
+/* Spacer div pushes content below the fixed banner */
+#banner-spacer {
+    height: 110px;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    color: #1a5276;
+}
+
+h2 {
+    border-bottom: 2px solid #aed6f1;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* ===== FORM CONTAINER ===== */
+#form-container {
+    max-width: 980px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== iFRAME WRAPPER ===== */
+#iframe-wrapper {
+    background: #f0f8ff;
+    border: 1px solid #aed6f1;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+}
+
+#iframe-wrapper h3 {
+    font-size: 14px;
+    color: #1a5276;
+    margin-top: 0;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 7px 10px;
+    vertical-align: middle;
+}
+
+/* ===== LABEL CELLS ===== */
+.label {
+    width: 160px;
+    font-weight: 600;
+    color: #1a5276;
+    text-align: right;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+/* ===== SECTION HEADER ROWS ===== */
+.section-header td {
+    background-color: #d6eaf8;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a5276;
+    padding: 10px 12px;
+    letter-spacing: 0.5px;
+    border-top: 2px solid #aed6f1;
+    border-bottom: 1px solid #aed6f1;
+}
+
+/* ===== INPUTS, SELECTS, TEXTAREA ===== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    padding: 7px 10px;
+    border: 1px solid #aab7c4;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+    background-color: #f7fbff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2e86c1;
+    outline: none;
+    box-shadow: 0 0 4px rgba(46,134,193,0.3);
+}
+
+input[type="range"] {
+    width: 220px;
+    cursor: pointer;
+}
+
+/* ===== ERROR SPANS ===== */
+.err {
+    display: block;
+    min-height: 18px;
+    color: transparent;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+    line-height: 18px;
+    transition: color 0.15s ease;
+}
+
+.err.active {
+    color: #c0392b;
+}
+
+/* ===== ERROR SUMMARY ===== */
+.err-summary-msg {
+    display: block;
+    background: #fdf2f2;
+    border: 1px solid #e8a0a0;
+    border-radius: 4px;
+    color: #c0392b;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 16px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ===== PASSWORD STRENGTH ===== */
+.pwd-strength {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.pwd-strength.weak   { background-color: #fadbd8; color: #c0392b; }
+.pwd-strength.fair   { background-color: #fdebd0; color: #d35400; }
+.pwd-strength.strong { background-color: #d5f5e3; color: #196f3d; }
+
+/* ===== SLIDER LABEL ===== */
+.slider-label {
+    font-size: 13px;
+    color: #5d6d7e;
+}
+
+/* ===== BUTTONS ===== */
+input[type="reset"] {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+input[type="submit"] {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #1a7a3a;
+    color: #ffffff;
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 4px;
+    font-weight: 700;
+    background-color: #1e8449;
+    color: #ffffff;
+}
+
+#btn-validate {
+    background-color: #2471a3;
+}
+
+button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+/* ===== REVIEW PANEL ===== */
+#review-panel {
+    max-width: 980px;
+    margin: 24px auto 30px;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    border: 2px solid #1a5276;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+#review-panel h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.review-subtitle {
+    text-align: center;
+    color: #5d6d7e;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.review-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #d6eaf8;
+    vertical-align: top;
+}
+
+.review-section-header td {
+    background-color: #1a5276;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 12px;
+    letter-spacing: 0.5px;
+}
+
+.review-label {
+    width: 200px;
+    font-weight: 600;
+    color: #1a5276;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.review-value { color: #2c3e50; }
+
+.review-status {
+    width: 110px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.review-status.pass  { color: #196f3d; }
+.review-status.warn  { color: #d35400; }
+.review-status.error { color: #c0392b; }
+
+/* ===== FOOTER — FIXED at bottom (content protection requirement) ===== */
+#footer {
+    position: fixed;          /* keeps footer visible on scroll */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1a5276;
+    color: #aed6f1;
+    text-align: center;
+    padding: 10px 30px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+}
+
+/* Spacer div prevents content from hiding behind fixed footer */
+#footer-spacer {
+    height: 70px;
+}
+
+#footer p { margin: 2px 0; }
+#footer-left  { text-align: left; }
+#footer-center { text-align: center; }
+#footer-right  { text-align: right; }
+
+#footer a { color: #aed6f1; text-decoration: none; margin: 0 6px; }
+a:visited  { color: #7fb3d3; }
+a:hover    { color: #ffffff; text-decoration: underline; }
+
+#footer-center button {
+    background-color: #aed6f1;
+    color: #1a5276;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    font-size: 13px;
+}

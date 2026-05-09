@@ -1,0 +1,78 @@
+<!--
+  Program name: thankyou4.html
+  Author: STEVEN KOLAK
+  Date created: 5/8/26
+  Date last edited: 5/8/26
+  Version: 4.0
+  Description: Confirmation page for HW4 ClearPath Medical patient registration.
+               Reads first name cookie to personalize the thank-you message.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearPath Medical – Submission Confirmed</title>
+    <link href="style4.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="banner">
+    <img src="logo.png" alt="ClearPath Medical Logo">
+    <div id="banner-text">
+        <h1>ClearPath Medical</h1>
+        <p id="thankyou-welcome" style="font-weight:700; font-size:15px; color:#ffd700;"></p>
+    </div>
+</div>
+<div id="banner-spacer"></div>
+
+<div id="form-container" style="text-align:center; padding: 60px 40px;">
+    <h2>Thank You for Your Submission!</h2>
+    <p id="thankyou-name-msg">Your patient registration has been received.</p>
+    <p>Our team will review your information and contact you within 1–2 business days.</p>
+    <p>For immediate assistance, please call <strong>(713) 555-0100</strong>.</p>
+    <br>
+    <a href="homework4.html">&larr; Return to Registration Form</a>
+</div>
+
+<div id="footer">
+    <div id="footer-left">
+        <p><strong>ClearPath Medical</strong></p>
+        <p>PO Box 5500 &bull; Houston, TX 77002</p>
+    </div>
+    <div id="footer-center">
+        <button onclick="window.location.href='mailto:contact@clearpathmedical.com'">Contact Us</button>
+    </div>
+    <div id="footer-right">
+        <a href="https://facebook.com" target="_blank">Facebook</a> |
+        <a href="https://twitter.com" target="_blank">Twitter</a> |
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    </div>
+</div>
+<div id="footer-spacer"></div>
+
+<script>
+    // Read cookie to personalize thank-you page
+    function getCookie(name) {
+        const prefix = name + '=';
+        const cookies = document.cookie.split(';');
+        for (let c of cookies) {
+            c = c.trim();
+            if (c.startsWith(prefix)) return decodeURIComponent(c.substring(prefix.length));
+        }
+        return null;
+    }
+
+    const savedName = getCookie('cp_fname');
+    const welcomeEl = document.getElementById('thankyou-welcome');
+    const nameMsg   = document.getElementById('thankyou-name-msg');
+
+    if (savedName) {
+        welcomeEl.textContent = 'See you next time, ' + savedName + '!';
+        nameMsg.textContent   = 'Thank you, ' + savedName + '! Your patient registration has been received.';
+    } else {
+        welcomeEl.textContent = 'Thank you for registering!';
+    }
+</script>
+</body>
+</html>
